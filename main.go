@@ -1,29 +1,37 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
+	"strings"
 )
 
 const hereAPIKey = "g-gI_EzetmmNF8WDJNLXRu-hYIqtoRj8OiGtGZADXeM"
 
+var laLong [][]string
+
 func main() {
-	lat := "37.7749"   // Replace with the desired latitude
-	lng := "-122.4194" // Replace with the desired longitude
-	limit := "5"       // Replace with the desired limit
+	laLong1 := readCSV()
+	for i := 0; i < len(laLong1); i++ {
+		lat := laLong1[i][0]
+		lng := laLong1[i][1]
+		limit := "1" // Replace with the desired limit
 
-	evChargePoints, err := getEVChargePoints(lat, lng, limit)
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
+		evChargePoints, err := getEVChargePoints(lat, lng, limit)
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
 
-	fmt.Println("EV Charging Stations:")
-	for _, station := range evChargePoints.Items {
-		fmt.Printf("Name: %s, Latitude: %f, Longitude: %f\n", station.Title, station.Address.Position.Lat, station.Address.Position.Lng)
+		fmt.Println("EV Charging Stations:")
+		for _, station := range evChargePoints.Items {
+			fmt.Printf("Name: %s, Latitude: %f, Longitude: %f\n", station.Title, station.Address.Position.Lat, station.Address.Position.Lng)
+		}
 	}
 }
 
@@ -80,4 +88,20 @@ func getEVChargePoints(lat, lng, limit string) (*EVChargePointResponse, error) {
 	}
 
 	return &evChargePoints, nil
+}
+
+func readCSV() [][]string {
+	file, err := os.Open("Wales.csv")
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		line := scanner.Text()
+		item := strings.Split(line, ",")
+		listItem := item[9:11]
+		laLong = append(laLong, listItem)
+	}
+	return laLong
 }
