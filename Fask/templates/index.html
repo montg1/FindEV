@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Route Calculator</title>
+    <style>
+      body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f5f5f5;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          background-image: url('C:/Users/zrudo/Downloads/FindEVFront/Fask/templates/cars.jpg');
+          background-size: cover;  /* Set background image to cover the entire screen */
+          background-position: center; 
+          background-repeat: no-repeat;
+      }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="/calculate_route" method="post">
+        <h1>EV Route Calculator</h1>
+        <label for="series">Maximum distance for the path :</label>
+        <input type="text" name="series" required>
+        <label for="current_location">Start :</label>
+        <input type="text" name="current_location" required>
+        <label for="destination">Destination :</label>
+        <input type="text" name="destination" required>
+        <button type="submit">ENTER</button>
+    </form>
+</body>
+</html>

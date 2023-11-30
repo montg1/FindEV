@@ -100,5 +100,6 @@ folium.Marker(goal_coordinates, popup='Goal Location').add_to(map_path)
 path_coordinates = [G.nodes[node]['pos'] for node in shortest_path]
 plugins.AntPath(locations=path_coordinates, color='red', delay=1000).add_to(map_path)
 
+
 # Save the map as an HTML file
 map_path.save('shortest_path_map.html')

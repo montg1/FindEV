@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_0411cafebb9f4bb0e48df757894f92ce {
+                #map_d43da328bfb974a91a33ed45c4ad5c75 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,25 +35,23 @@
                 .leaflet-container { font-size: 1rem; }
             </style>
         
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_0411cafebb9f4bb0e48df757894f92ce" ></div>
+            <div class="folium-map" id="map_d43da328bfb974a91a33ed45c4ad5c75" ></div>
         
 </body>
 <script>
     
     
-            var map_0411cafebb9f4bb0e48df757894f92ce = L.map(
-                "map_0411cafebb9f4bb0e48df757894f92ce",
+            var map_d43da328bfb974a91a33ed45c4ad5c75 = L.map(
+                "map_d43da328bfb974a91a33ed45c4ad5c75",
                 {
-                    center: [52.1307, -3.7837],
+                    center: [51.468083, -3.206283],
                     crs: L.CRS.EPSG3857,
-                    zoom: 8,
+                    zoom: 12,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -63,61 +61,71 @@
 
         
     
-            var tile_layer_41fd4b750f5ba3f67df1160da13bcb98 = L.tileLayer(
+            var tile_layer_09dcb632efc0b73e11eebb6c1f0aaef1 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-                tile_layer_41fd4b750f5ba3f67df1160da13bcb98.addTo(map_0411cafebb9f4bb0e48df757894f92ce);
+                tile_layer_09dcb632efc0b73e11eebb6c1f0aaef1.addTo(map_d43da328bfb974a91a33ed45c4ad5c75);
     
-            var marker_cluster_8c85cc3a1aac6c1cd37af612c855049e = L.markerClusterGroup(
+            var marker_a9c0a0e7707ad508e143a7a2cdae8d5b = L.marker(
+                [51.468083, -3.206283],
                 {}
-            );
+            ).addTo(map_d43da328bfb974a91a33ed45c4ad5c75);
+
+
+            var marker_a9c0a0e7707ad508e143a7a2cdae8d5b = L.marker(
+                [51.4665486,-3.2017036],
+                {}
+            ).addTo(map_d43da328bfb974a91a33ed45c4ad5c75);
+
+
+
         
     
-                marker_cluster_8c85cc3a1aac6c1cd37af612c855049e.addTo(map_0411cafebb9f4bb0e48df757894f92ce);
-    
-            var marker_bebe8008109b586a9900bbd5b891cffa = L.marker(
-                [51.764043, -3.203113],
-                {}
-            ).addTo(map_0411cafebb9f4bb0e48df757894f92ce);
-        
-    
-        var popup_a672789f0c02d9db3a101262ff6b1f47 = L.popup({"maxWidth": "100%"});
+        var popup_06af711c1de7848ae8aec3e868e7c5b7 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_77139acffedd0579998cc034c743d3e2 = $(`<div id="html_77139acffedd0579998cc034c743d3e2" style="width: 100.0%; height: 100.0%;">Regain Charging Post, The Works Ebbw Vale</div>`)[0];
-                popup_a672789f0c02d9db3a101262ff6b1f47.setContent(html_77139acffedd0579998cc034c743d3e2);
+                var html_d11db9ab1526719b4c93faab88cbf445 = $(`<div id="html_d11db9ab1526719b4c93faab88cbf445" style="width: 100.0%; height: 100.0%;">Current Location</div>`)[0];
+                popup_06af711c1de7848ae8aec3e868e7c5b7.setContent(html_d11db9ab1526719b4c93faab88cbf445);
             
         
 
-        marker_bebe8008109b586a9900bbd5b891cffa.bindPopup(popup_a672789f0c02d9db3a101262ff6b1f47)
+        marker_a9c0a0e7707ad508e143a7a2cdae8d5b.bindPopup(popup_06af711c1de7848ae8aec3e868e7c5b7)
         ;
 
         
     
     
-            var marker_97af2fa0693fcc0e8b9bb6ad8ef8604f = L.marker(
-                [51.777559, -3.202214],
+            var marker_2ebe4d33a1a7970eef0da6b8de757e0d = L.marker(
+                [51.469647, -3.195624],
                 {}
-            ).addTo(map_0411cafebb9f4bb0e48df757894f92ce);
+            ).addTo(map_d43da328bfb974a91a33ed45c4ad5c75);
         
     
-        var popup_4c6e6771cec99076ca1aecdb5a04f8c1 = L.popup({"maxWidth": "100%"});
+        var popup_430966aee6d2ccd21cc47c4098a4d663 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_6eaa5e0d3ceb2d965513932f0482c089 = $(`<div id="html_6eaa5e0d3ceb2d965513932f0482c089" style="width: 100.0%; height: 100.0%;">Ebbw Vale Multi-Story Car Park, Steel Works Road</div>`)[0];
-                popup_4c6e6771cec99076ca1aecdb5a04f8c1.setContent(html_6eaa5e0d3ceb2d965513932f0482c089);
+                var html_e5d120a812100dcf965bb74d3affc0a2 = $(`<div id="html_e5d120a812100dcf965bb74d3affc0a2" style="width: 100.0%; height: 100.0%;">Goal Location</div>`)[0];
+                popup_430966aee6d2ccd21cc47c4098a4d663.setContent(html_e5d120a812100dcf965bb74d3affc0a2);
             
         
 
-        marker_97af2fa0693fcc0e8b9bb6ad8ef8604f.bindPopup(popup_4c6e6771cec99076ca1aecdb5a04f8c1)
+        marker_2ebe4d33a1a7970eef0da6b8de757e0d.bindPopup(popup_430966aee6d2ccd21cc47c4098a4d663)
         ;
 
         
     
+    
+            ant_path_005596939caf2096f9c69e52d7015eb9 = L.polyline.antPath(
+              [[51.468083, -3.206283],
+              [51.466051, -3.200247],
+              [51.470286, -3.196724], [51.469647, -3.195624]],
+              {"bubblingMouseEvents": true, "color": "red", "dashArray": [10, 20], "dashOffset": null, "delay": 1000, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "paused": false, "pulseColor": "#FFFFFF", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+        ).addTo(map_d43da328bfb974a91a33ed45c4ad5c75);
+        
 </script>
 </html>
