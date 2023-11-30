@@ -34,7 +34,7 @@ for index, row in df.iterrows():
     if current_path:
         # Calculate distance between the last point in the path and the current point
         distance = calculate_distance((current_path[-1]['Latitude'], current_path[-1]['Longitude']),
-                                      (row['Latitude'], row['Longitude']))
+                                       (row['Latitude'], row['Longitude']))
 
         if total_distance + distance <= 300:
             # Add the current point to the path
@@ -68,12 +68,16 @@ for index, row in df.iterrows():
     G.add_node(row['Location'], pos=(row['Latitude'], row['Longitude']))
     if index > 0:
         distance = calculate_distance((df.at[index-1, 'Latitude'], df.at[index-1, 'Longitude']),
-                                      (row['Latitude'], row['Longitude']))
+                                       (row['Latitude'], row['Longitude']))
         G.add_edge(df.at[index-1, 'Location'], row['Location'], weight=distance)
 
-# Replace 'current_coordinates' and 'goal_coordinates' with your actual values
-current_coordinates = (51.4816, -3.1791)  # Example current coordinates
-goal_coordinates = (51.4560, -3.1884)  # Example goal coordinates
+# User input for current and goal locations
+current_location = input("Enter the current location (latitude,longitude): ").split(',')
+goal_location = input("Enter the goal location (latitude,longitude): ").split(',')
+
+# Convert input to float
+current_coordinates = (float(current_location[0]), float(current_location[1]))
+goal_coordinates = (float(goal_location[0]), float(goal_location[1]))
 
 # Find the closest nodes to the current and goal coordinates
 start_node = min(G.nodes, key=lambda n: geodesic(G.nodes[n]['pos'], current_coordinates).kilometers)
