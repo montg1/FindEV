@@ -21,6 +21,9 @@ for index, row in df.iterrows():
     if not pd.isna(row['Latitude']) and not pd.isna(row['Longitude']):
         folium.Marker([row['Latitude'], row['Longitude']], popup=row['Location']).add_to(map_wales)
 
+# User input for maximum distance
+max_distance = float(input("Enter the maximum distance for the path (in kilometers): "))
+
 # Initialize variables for path calculation
 current_path = []
 total_distance = 0
@@ -29,14 +32,14 @@ total_distance = 0
 def calculate_distance(coord1, coord2):
     return geodesic(coord1, coord2).kilometers
 
-# Add a path using the latitude and longitude coordinates, limiting to 300 km
+# Add a path using the latitude and longitude coordinates, limiting to the user-defined maximum distance
 for index, row in df.iterrows():
     if current_path:
         # Calculate distance between the last point in the path and the current point
         distance = calculate_distance((current_path[-1]['Latitude'], current_path[-1]['Longitude']),
                                        (row['Latitude'], row['Longitude']))
 
-        if total_distance + distance <= 300:
+        if total_distance + distance <= max_distance:
             # Add the current point to the path
             current_path.append({'Location': row['Location'], 'Latitude': row['Latitude'], 'Longitude': row['Longitude']})
             total_distance += distance
